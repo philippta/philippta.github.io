@@ -1,0 +1,11 @@
+baseURL = "https://philipptanlak.dev/"
+languageCode = "en-us"
+title = "Philipp Tanlak"
+theme = "paper"
+
+[menu]
+  [[menu.main]]
+    identifier = "github"
+    name = "GitHub"
+    url = "https://github.com/philippta"
+    weight = -1
