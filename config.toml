@@ -1,4 +1,4 @@
-baseURL = "https://philipptanlak.dev/"
+baseURL = "/"
 languageCode = "en-us"
 title = "Philipp Tanlak"
 theme = "paper"
