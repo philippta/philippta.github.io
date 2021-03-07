@@ -5,7 +5,16 @@
 <footer class="footer">
   <span>&copy; {{ now.Year }} <a href="{{ "" | absURL }}">{{ .Site.Title }}</a></span>
 </footer>
-<script src="{{ "prism.js" | absURL }}"></script>
+<!-- <script src="{{ " prism.js" | absURL }}"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"
+  integrity="sha512-YBk7HhgDZvBxmtOfUdvX0z8IH2d10Hp3aEygaMNhtF8fSOvBZ16D/1bXZTJV6ndk/L/DlXxYStP8jrF77v2MIg=="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-go.min.js"
+  integrity="sha512-SgF1uayJ2/8TV+MhLasqygnm++vYRXswmrR2ZAmUCL4pXtf+6KzUgXPpn10Y6xca658sxOQEOsoP3MChfhke5A=="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-diff.min.js"
+  integrity="sha512-QHFQ4+gqPck5hEy4UhfKynXlq3U58GuSQli0/+i6o1AcC/6ht6PtwhtkNIurLfshVbaXkPDXdVp8p/eGXfRKIA=="
+  crossorigin="anonymous"></script>
 <script>
 </script>
 </body>

@@ -1,8 +1,12 @@
 ---
 title: "About Me"
-date: 2021-03-07T13:06:37+01:00
+date: 1337-06-05T13:37:00+01:00
 menu: "main"
 type: "page"
 ---
 
-Hey, Philipp here! 👋
+## Hey! 👋
+
+My name is Philipp Tanlak. I'm a full stack web developer from Germany.
+
+Email: philipp [dot] tanlak [at] gmail.com

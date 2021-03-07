@@ -45,7 +45,7 @@ pre[class*="language-"] {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 
-  line-height: 1.5em;
+  line-height: 1.7em;
   font-weight: 500;
   letter-spacing: 0 !important;
 }
@@ -111,11 +111,11 @@ pre[class*="language-"].language-scss > code {
 }
 
 .token.attr-name {
-  color: #ffcb6b;
+  color: #61a7ff;
 }
 
 .token.attr-value {
-  color: #b392f0;
+  color: #a3d0ff;
 }
 
 .token.attribute {
@@ -155,7 +155,7 @@ pre[class*="language-"].language-scss > code {
 }
 
 .token.deleted {
-  color: #b392f0;
+  color: #ff6171;
 }
 
 .token.doctype {
@@ -185,7 +185,7 @@ pre[class*="language-"].language-scss > code {
 }
 
 .token.inserted {
-  color: #80cbc4;
+  color: #61ffa1;
 }
 
 .token.keyword {
@@ -237,7 +237,7 @@ pre[class*="language-"].language-scss > code {
 }
 
 .token.tag {
-  color: #b392f0;
+  color: #ff6171;
 }
 
 .token.unit {
