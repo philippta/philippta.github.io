@@ -239,7 +239,7 @@ type ProfileShowParams struct {
 }
 
 func ProfileShow(w io.Writer, p ProfileShowParams) error {
-    return dashboard.Execute(w, p)
+    return profileShow.Execute(w, p)
 }
 
 // and so on ...
