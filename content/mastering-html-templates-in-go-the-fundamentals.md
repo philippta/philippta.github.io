@@ -1,7 +1,26 @@
 ---
 title: "Mastering HTML templates in Go - The fundamentals"
 date: 2021-03-11T23:00:00+01:00
+tags: ["go", "html"]
+summary: "The main reason why we all like the Go programming language so much is because of its simplicity. And how else could the html/template parser be, than just simple."
 ---
+
+- [Introduction](#introduction)
+- [The beauty of its simplicity](#the-beauty-of-its-simplicity)
+- [Parsing templates](#parsing-templates)
+    - [Parsing from a string](#parsing-from-a-string)
+    - [Parsing from a file](#parsing-from-a-file)
+    - [Parsing from an io.FS (e.g. embed package)](#parsing-from-an-iofs-eg-embed-package)
+- [How values are rendered](#how-values-are-rendered)
+    - [Accessing structs, slices and maps](#accessing-structs-slices-and-maps)
+        - [Structs](#structs)
+        - [Slices](#slices)
+        - [Maps](#maps)
+- [Control structures: If, else if, else](#control-structures-if-else-if-else)
+    - [Truthy and falsy](#truthy-and-falsy)
+    - [The hardest part about conditions](#the-hardest-part-about-conditions)
+- [Control structures: Loops](#control-structures-loops)
+- [Wrapping up](#wrapping-up)
 
 ## Introduction
 
@@ -88,7 +107,7 @@ tmpl, _ := template.ParseFS(files, "hello.html")
 tmpl.Execute(os.Stdout, "World") // Hello World!
 ```
 
-## How values are printed
+## How values are rendered
 
 In the previous examples, you've already seen some snippets on how to render values inside a template, but let me go deeper on this an explain it in more detail.
 
