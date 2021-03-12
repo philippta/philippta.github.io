@@ -12,6 +12,7 @@ summary: "The main reason why we all like the Go programming language so much is
     - [Parsing from a file](#parsing-from-a-file)
     - [Parsing from an io.FS (e.g. embed package)](#parsing-from-an-iofs-eg-embed-package)
 - [How values are rendered](#how-values-are-rendered)
+    - [Automatic escaping of user inputs](#automatic-escaping-of-user-inputs)
     - [Accessing structs, slices and maps](#accessing-structs-slices-and-maps)
         - [Structs](#structs)
         - [Slices](#slices)
