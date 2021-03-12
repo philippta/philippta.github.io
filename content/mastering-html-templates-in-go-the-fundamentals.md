@@ -127,6 +127,32 @@ tmpl.Execute(os.Stdout, map[string]int{"foo": 1})   // map[foo:1]
 tmpl.Execute(os.Stdout, struct{X int; Y int}{1, 2}) // {1 2}
 ```
 
+### Automatic escaping of user inputs
+
+A crucial part of a HTML templating engine is its capability to deal with unsafe user input. If you for example had a comment section on your web page where users an enter anything they like, the templating engine should be capable of escaping that inputs automatically and therefore making it safe to be rendered. If this were not the case and a user would inject a `<script>alert("hacked")</script>` into his message, this would be called a XSS attack.
+
+The `html/template` package is safe in this case as it prevents these attacks. Let's take a look of what it renders when passing it said message:
+
+```go
+// Template: <div>{{.}}</div>
+tmpl.Execute(os.Stdout, `<script>alert("hacked")</script>`)
+```
+```html
+<!-- Output -->
+<div>&lt;script&gt;alert(&#34;hacked&#34;)&lt;/script&gt;</div>
+```
+
+A secret super power of the `html/template` package is, that it also knows in which context a value is rendered. If we were to render the same message inside a `<script>` tag instead, the message will be escaped differently. This is also true for CSS within a `<style>` tag.
+
+```go
+// Template: <script>{{.}}</script>
+tmpl.Execute(os.Stdout, `<script>alert("hacked")</script>`)
+```
+```html
+<!-- Output -->
+<script>"\u003cscript\u003ealert(\"hacked\")\u003c/script\u003e"</script>
+```
+
 ### Accessing structs, slices and maps
 
 Rendering simple values is easy but not really useful. In most cases you will be passing in more complex data structures such as slices, maps or custom structs, especially when you want to render an entire HTML5 document. In that case you probably have some general page information, user data and slices of content. For that it's really useful to know how you can access all these nested values.
