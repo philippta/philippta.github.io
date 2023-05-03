@@ -110,7 +110,7 @@ tmpl.Execute(os.Stdout, "World") // Hello World!
 
 ## How values are rendered
 
-In the previous examples, you've already seen some snippets on how to render values inside a template, but let me go deeper on this an explain it in more detail.
+In the previous examples, you've already seen some snippets on how to render values inside a template, but let me go deeper and explain it in more detail.
 
 When a value like a string is passed into the `tmpl.Execute()` method call, the template engine will map this value to literal `.` (dot), as seen within the curly braces `{{.}}`. It can then be used to just print it out or in an `if`, `range`, `with`, ... instruction.
 
@@ -130,9 +130,9 @@ tmpl.Execute(os.Stdout, struct{X int; Y int}{1, 2}) // {1 2}
 
 ### Automatic escaping of user inputs
 
-A crucial part of a HTML templating engine is its capability to deal with unsafe user input. If you for example had a comment section on your web page where users an enter anything they like, the templating engine should be capable of escaping that inputs automatically and therefore making it safe to be rendered. If this were not the case and a user would inject a `<script>alert("hacked")</script>` into his message, this would be called a XSS attack.
+A crucial part of a HTML templating engine is its capability to deal with unsafe user input. If you, for example had a comment section on your web page where users an enter anything they like, the templating engine should be capable of escaping the inputs automatically and therefore making it safe for rendering. If this were not the case and a user attempts to include `<script>alert("hacked")</script>` into his message, this would be called a XSS attack.
 
-The `html/template` package is safe in this case as it prevents these attacks. Let's take a look of what it renders when passing it said message:
+The `html/template` package is safe in this case as it prevents these attacks. Let's take a look of what it renders when passing in the message:
 
 ```go
 // Template: <div>{{.}}</div>
@@ -190,7 +190,7 @@ tmpl.Execute(os.Stdout, []string{"Orange", "Apple", "Banana"})
 
 #### Maps
 
-Similar to slices, maps can be accessed in the very same way using the `index` template function. But in addition to that, it's also possible to access maps like structs. So here are the two ways to access a map:
+Similar to slices, maps can be accessed in the very same way by using the `index` template function. Additionally, it's also possible to access maps like structs. So here are the two ways to access a map:
 
 ```html
 {{index . "GOOG"}}
@@ -236,7 +236,7 @@ One thing to note with this `if` instruction is, that it's simply closed with an
 
 ### Truthy and falsy
 
-When thinking of if conditions in the Go, we're not allowed to have truthy or falsy values in our code. Everything must evaluate to a strict boolean value. This is not the case for Go's html templates. Here we're allowed to check for the truthyness of a value. So we can for example check if a string is empty or filled and put that into the if condition like so:
+When thinking of if conditions in Go, we're not allowed to have truthy or falsy values in our code. Everything must evaluate to a strict boolean value. This is not the case for Go's html templates. Here, we're allowed to check for the truthyness of a value. So we can, for example check if a string is empty or filled and put that into the if condition like so:
 
 ```html
 {{if .}}
@@ -273,7 +273,7 @@ map[string]int{}       => false
 
 ### The hardest part about conditions
 
-Now we've come to the point where most people struggle with and I personally think that it's the hardest part to wrap your head around when working with Go's templating engine. Actually it's pretty simple once you got the hang of it. But if you want to learn anything about templates in Go, this is a must.
+Now we've come to the point where most people struggle with and I personally think that it's the hardest part to wrap your head around when working with Go's templating engine. It's actually pretty simple once you get the hang of it. But if you want to learn anything about templates in Go, this is a must.
 
 As I've mentioned in the very beginning of this post, the template syntax is very minimal but actually very powerful. Because of that, when dealing with if statements, we are not allowed to use operators such as `&&`, `||`, `==`, `!=`, `>`, etc. Therefore we can not have complex expressions like:
 ```html
@@ -323,7 +323,7 @@ In every template instructions we are also allowed to use parentheses to encapsu
 if isAuthenticated && (isAdmin || hasEditorAccess) {}
 ```
 
-In addition to `and` and `or` there is also `eq`, `ne`, `not` and so on... With that we can build even more complex conditions like this for example:
+In addition to `and` and `or` there is also `eq`, `ne`, `not` and so on... With these, we can build even more complex conditions like for example:
 ```html
 {{if eq .PageType "post"}} <!-- .PageType == "post" -->
 {{if ne "Apple" "Orange"}} <!-- "Apple" != "Orange" -->
@@ -332,13 +332,13 @@ In addition to `and` and `or` there is also `eq`, `ne`, `not` and so on... With 
 
 If you want to take a look at all the functions in detail, here's the link to the official documentation: [Functions](https://golang.org/pkg/text/template/#hdr-Functions)
 
-So once you wrapped you head around this concept, you will be way more productive with the `html/template` package.
+So once you wrap your head around this concept, you will be way more productive with the `html/template` package.
 
 ## Control structures: Loops
 
-Now that you know how complex conditions work, let's quickly take a look at another easy part again, which is: Loops. Loops are very useful when you for example want to render a list of blog posts on a page or just show a list of items. For that, the template engine provides a `range` instruction.
+Now that you know how complex conditions work, let's quickly take a look at another easy part: Loops. Loops are very useful when you for example want to render a list of blog posts on a page or just show a list of items. For that, the template engine provides a `range` instruction.
 
-The `range` instruction introduces us to a new concept, which I don't really know the name of 😅. But what it does is changing the value inside the dot to the value of the current iterated over item. At first the dot contains the entire slice as its value, but once it enters the range loop, the dot contains the single slice item. Let me show you:
+The `range` instruction introduces us to a new concept, which I don't really know the name of 😅. But it changes the value inside the dot to the value of the current iterated item. At first the dot contains the entire slice as its value, but once it enters the range loop, the dot contains the single slice item. Let me show you:
 
 ```html
 <!-- . (dot) is: []string{"Apple", "Banana", "Orange"} -->
@@ -351,7 +351,7 @@ The `range` instruction introduces us to a new concept, which I don't really kno
 tmpl.Execute(os.Stdout, []string{"Apple", "Banana", "Orange"})
 ```
 
-The above example just gives us access to the item values of the slice, but what is also possible is, that we get the index to it as well by using an assignment you know from Go's `for i, item := range items` loop. Here is an example how we can grab the index and the value using template variables:
+The above example gives us access to the item values of the slice, but what is also possible is, that we get the index to it as well by using an assignment you know from Go's `for i, item := range items` loop. Here is an example how we can grab the index and the value using template variables:
 
 ```html
 {{range $index, $value := .}}
