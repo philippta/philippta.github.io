@@ -23,3 +23,7 @@ So in the end the true author is the one who can justify the logic, regardless o
 If the author of a piece of code meticulously reasoned through it, with or without the help of AI, I can assume it's trustworthy. If it was generated without any prior verification, all trust goes away, leaving me as a code reviewer with the burden of reasoning through it.
 
 So until we have solved the problem of AI producing potentially bogus code, I suggest we prompt the AI to add resoning details and add those to our pull requests.
+
+---
+
+Discuss on Hacker News: https://news.ycombinator.com/item?id=47193006
