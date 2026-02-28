@@ -7,6 +7,6 @@ type: "page"
 
 ## Hey! 👋
 
-My name is Philipp Tanlak. I'm a full stack web developer from Germany.
+My name is Philipp Tanlak. I'm a cloud engineer from Germany.
 
 Email: philipp [dot] tanlak [at] gmail.com
